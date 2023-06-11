@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather App</title>
+  <style>
+    body {
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 50px;
+      box-sizing: border-box;
+      text-align: center;
+      color: #fff;
+    }
+
+    .input-group {
+      margin-bottom: 30px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 15px;
+      border-radius: 9px;
+      border: none;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #333;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Weather Report</h1>
+    <div class="input-group">
+      <label for="farmerName">Farmer Name:</label>
+      <input type="text" id="farmerName" placeholder="Enter farmer name">
+    </div>
+    <div class="input-group">
+      <label for="farmName">Farm Name:</label>
+      <input type="text" id="farmName" placeholder="Enter farm name">
+    </div>
+    <div class="input-group">
+      <label for="latitude">Latitude:</label>
+      <input type="text" id="latitude" placeholder="Enter latitude">
+    </div>
+    <div class="input-group">
+      <label for="longitude">Longitude:</label>
+      <input type="text" id="longitude" placeholder="Enter longitude">
+    </div>
+    <button class="btn" onclick="getWeather()">Get Weather</button>
+  </div>
+
+  <script>
+    function getWeather() {
+      var farmerName = document.getElementById("farmerName").value;
+      var farmName = document.getElementById("farmName").value;
+      var latitude = document.getElementById("latitude").value;
+      var longitude = document.getElementById("longitude").value;
+      var url = "http://127.0.0.1:8000/get_report?farmername="+farmerName+"&farmname="+farmName+"farm&latitude="+latitude+"&longitude="+longitude; 
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
+
+<!-- latitude = '23.7618321'
+longitude = '73.1520759' -->
