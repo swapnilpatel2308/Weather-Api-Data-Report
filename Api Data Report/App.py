@@ -176,7 +176,10 @@ def Create_PDF(farmername,farmname,latitude,longitude):
 
     winddir = [hours[i]['winddir'] for i in range(24)]
     windspeed = [hours[i]['windspeed'] for i in range(24)]
-    ax = WindroseAxes.from_ax(figsize=(12,8))
+    fig = plt.figure(figsize=(12,8))
+    # ax = WindroseAxes.from_ax(figsize=(12,8))
+    ax = WindroseAxes(fig, rect=[0.1, 0.1, 0.8, 0.8])
+    fig.add_axes(ax)
     WindroseAxes.set_title(ax,"Wind Direction And Speed(Km/h)")
     ax.bar(winddir,windspeed, normed=True, opening=0.3, edgecolor='white')
     ax.set_legend()
@@ -304,7 +307,10 @@ def Create_PDF(farmername,farmname,latitude,longitude):
 
     windspeed = [day[i]['windspeed'] for i in range(15)]
     winddir = [day[i]['winddir'] for i in range(15)]
-    ax = WindroseAxes.from_ax(figsize=(12,8))
+    fig = plt.figure(figsize=(12,8))
+    # ax = WindroseAxes.from_ax(figsize=(12,8))
+    ax = WindroseAxes(fig, rect=[0.1, 0.1, 0.8, 0.8])
+    fig.add_axes(ax)
     WindroseAxes.set_title(ax,"Wind Direction And Speed(Km/h)")
     ax.bar(winddir,windspeed, normed=True, opening=0.3, edgecolor='white')
     ax.set_legend()
